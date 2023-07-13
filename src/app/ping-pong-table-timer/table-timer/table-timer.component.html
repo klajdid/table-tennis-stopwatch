@@ -1,0 +1,61 @@
+<div class="card">
+  <section class="timer-counter-label">
+    <div class="circle"
+         [ngStyle]=" counter ? {'background-color': '#188e57'} : {'background-color': 'red'}"></div>
+    <div *ngIf="counter" [ngClass]="{blink: !running}">
+      <i class="fas fa-clock" style="font-size: 16px"></i><span> {{hours}}:</span><span>{{minutes}}:</span><span>{{seconds}}</span></div>
+    <div *ngIf="!counter">
+      <i class="fa fa-clock" style="font-size: 16px"></i><span> {{hours}}:</span><span>{{minutes}}
+      :</span><span>{{seconds}}</span>
+    </div>
+    <div>
+      <i class="fa fa-dollar-sign" style="font-size: 16px"></i><span> {{this.payment}}</span> <span> Lekë</span>
+    </div>
+
+    <div>
+      <span>Filloi: </span> <span>{{this.timeStarted | date: 'H:mm'}}</span>
+    </div>
+
+  </section>
+  <div class="timer-button-container" *ngIf="showTimerControls">
+    <button class="timer-button" (click)="startTimer()">
+      <i class="fa fa-play"> </i> {{ startText }}
+    </button>
+    <button class="timer-button"
+            style="background-color: #188e57; border: #188e57"
+            (click)="saveSessionToStorage(this.tableNumber);
+            clearTimer()"><i class="fa fa-circle-dollar-to-slot" style="font-size: 15px"></i> Paguar
+    </button>
+    <button class="timer-button"
+            style="background-color: #deab0b; border: #deab0b"
+            data-toggle="modal" data-target="#myModal"
+            (click)="openModal(template); this.dailySessions = getSessionHistory(this.tableNumber)"
+    ><i class="fa fa-file-archive" style="font-size: 15px"></i> Historia
+    </button>
+  </div>
+
+  <ng-template #template>
+    <div class="modal-header">
+      <h4 class="modal-title pull-left">Historia Ditore: Tavolina {{this.tableNumber}}</h4>
+      <div (click)="modalRef.hide()">
+        <button class="btn-close"></button>
+      </div>
+    </div>
+    <div class="modal-body" *ngFor="let session of dailySessions">
+      <div class="row">
+        <span class="row-label">Koha e fillimit te sesionit: </span>
+        <span>{{session.startingTime | date: 'H:mm'}}</span>
+      </div>
+      <div class="row">
+        <span class="row-label">Kohezgjatja e sesionit: </span><span>{{session.hours}} : {{session.minutes}} : {{session.seconds}}</span>
+      </div>
+      <div class="row" >
+        <span class="row-label">Pagesa: </span>
+        <span>{{session.payment}}</span>
+      </div>
+      <div class="border-bottom"></div>
+    </div>
+  </ng-template>
+</div>
+
+

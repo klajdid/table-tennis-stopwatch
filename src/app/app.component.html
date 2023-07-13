@@ -1,0 +1,63 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="content col-6">
+      <div class="header">
+        Tavolina {{tableNumbers[0]}}
+      </div>
+<!--      <hr/>-->
+      <div>
+        <app-table-timer [start]="_start" [showTimerControls]="true" [tableNumber]="tableNumbers[0]"></app-table-timer>
+      </div>
+    </div>
+    <div class="content  col-6">
+      <div class="header">
+        Tavolina {{tableNumbers[1]}}
+      </div>
+<!--      <hr/>-->
+      <div>
+        <app-table-timer [start]="_start" [showTimerControls]="true" [tableNumber]="tableNumbers[1]"></app-table-timer>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="content col-6">
+      <div class="header">
+        Tavolina {{tableNumbers[2]}}
+      </div>
+<!--      <hr/>-->
+      <div>
+        <app-table-timer [start]="_start" [showTimerControls]="true" [tableNumber]="tableNumbers[2]"></app-table-timer>
+      </div>
+    </div>
+
+    <div class="content  col-6">
+      <div class="header">
+        Tavolina {{tableNumbers[3]}}
+      </div>
+<!--      <hr/>-->
+      <div>
+        <app-table-timer [start]="_start" [showTimerControls]="true" [tableNumber]="tableNumbers[3]"></app-table-timer>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="delete-button-container">
+  <button class="delete-button" (click)= openModal(template)><i class="fas fa-trash-alt"></i> Fshi Historine Ditore</button>
+</div>
+  <ng-template #template >
+    <div class="modal-header">
+      <h4 class="modal-title pull-left">Deshironi te fshini historine ditore?</h4>
+      <div (click)="modalRef.hide()">
+        <button class="btn-close"></button>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <span class="btn btn-default delete-button" style="background-color: #6c757d" (click)="modalRef.hide()">Close</span>
+      <span class="btn btn-default delete-button" (click)="modalRef.hide()">Delete</span>
+    </div>
+  </ng-template>
+
+
