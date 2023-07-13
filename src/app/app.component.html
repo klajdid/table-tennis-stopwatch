@@ -56,7 +56,7 @@
     </div>
     <div class="modal-footer">
       <span class="btn btn-default delete-button" style="background-color: #6c757d" (click)="modalRef.hide()">Close</span>
-      <span class="btn btn-default delete-button" (click)="modalRef.hide()">Delete</span>
+      <span class="btn btn-default delete-button" (click)="localStorage.clear(); modalRef.hide()">Delete</span>
     </div>
   </ng-template>
 
