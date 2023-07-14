@@ -5,8 +5,7 @@
     <div *ngIf="counter" [ngClass]="{blink: !running}">
       <i class="fas fa-clock" style="font-size: 16px"></i><span> {{hours}}:</span><span>{{minutes}}:</span><span>{{seconds}}</span></div>
     <div *ngIf="!counter">
-      <i class="fa fa-clock" style="font-size: 16px"></i><span> {{hours}}:</span><span>{{minutes}}
-      :</span><span>{{seconds}}</span>
+      <i class="fa fa-clock" style="font-size: 16px"></i><span> {{hours}}:</span><span>{{minutes}}:</span><span>{{seconds}}</span>
     </div>
     <div>
       <i class="fa fa-dollar-sign" style="font-size: 16px"></i><span> {{this.payment}}</span> <span> Lekë</span>
