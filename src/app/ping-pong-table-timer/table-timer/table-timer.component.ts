@@ -15,7 +15,7 @@ export class TableTimerComponent implements OnChanges, OnInit {
   seconds: any = '00';
   milliseconds: any = '00';
   public payment: number = 0;
-  hourlyRate: number = 400;
+  hourlyRate: number = 500;
   public timeStarted: any;
   public limited!: boolean | undefined;
   currentSession: any = [];
